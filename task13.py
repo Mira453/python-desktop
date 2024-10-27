@@ -1,7 +1,13 @@
 
-def is_valid_name(name, surname):
-    if not name.isalpha() or not surname.isalpha():
-        print("Ім'я та прізвище повинно містити тільки літери")
+def is_valid_name(name):
+    if not name.isalpha() :
+        print("Ім'я повинно містити тільки літери")
+        return False
+    return True
+
+def is_valid_surname(surname):
+    if not surname.isalpha():
+        print("Прізвище повинно містити тільки літери")
         return False
     return True
 
@@ -11,19 +17,49 @@ def is_valid_phone(phone):
         return False
     return True
 
-def forma1():
+def variant1():
     while True:
         name = input("Введіть ім'я: ")
         surname = input("Введіть прізвище: ")
         phone = input("Введіть номер телефону: ")
-        if is_valid_name(name, surname) == True and is_valid_phone(phone) == True:
         
-            if not name or not surname or not phone:
+        if not name or not surname or not phone:
                 print("Не залишайте жодні поля порожніми")
-            else:
-                print("Спасибі")
-                break
-        else:
-            print("Спробуйте ще раз.")
+        elif is_valid_name(name) == True and is_valid_phone(phone) == True and is_valid_surname(surname) == True:
+            print("Спасибі")
+            break
+      
+def variant2():
+    while True:
+        name = input("Введіть ім'я: ")
+        surname = input("Введіть прізвище: ")
+        phone = input("Введіть номер телефону: ")
         
-forma1()
+        if not name and not surname and not phone:
+            print("Не залишайте всі поля порожніми")
+        elif phone and not is_valid_phone(phone):
+            continue
+        elif name and not is_valid_name(name):
+            continue
+        elif surname and not is_valid_surname(surname):
+            continue
+        else:
+            print("Спасибі")
+            break
+        
+def variant3():
+    while True:
+        name = input("Введіть ім'я: ")
+        surname = input("Введіть прізвище: ")
+        phone = input("Введіть номер телефону: ")
+        
+        if not name or not surname:
+            print("Не залишайте поля з ім'ям і прізвиськом порожніми")
+        elif phone and not is_valid_phone(phone):
+            continue
+        elif is_valid_name(name) == True and is_valid_surname(surname) == True:
+            print("Спасибі")
+            break
+         
+        
+variant2()

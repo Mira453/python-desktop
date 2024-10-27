@@ -11,8 +11,8 @@ def field_coordinates(x, y):
         print(f"Поле з координатами x = {x} y = {y} біле")     
             
 try:
-    x = 2
-    y = 2
+    x = 4
+    y = 7
     
     field_coordinates(x, y)
 except ValueError as e:
