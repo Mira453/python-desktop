@@ -12,5 +12,5 @@ def number(N):
     else:
         print("Число менше за 1")
         
-N = -56
+N = 56
 number(N)
